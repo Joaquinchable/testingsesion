@@ -1,9 +1,17 @@
-import React from 'react';
-import { render } from '@testing-library/react';
+import React from "react";
+import {shallow} from 'enzyme';
 import App from './App';
+import Ticket from './components/Ticket';
+import Footer from './components/Footer';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+it( "DeBe hacer el render de los compoentes hijos Footer y Ticket" , () => {
+
+      const wrapper = shallow(<App />);
+      const footer = wrapper.find(Footer);
+      const ticket = wrapper.find(Ticket);
+
+
+      expect(footer.exists()).toBe(true);
+      expect(ticket.exists()).toBe(true);
+
+})
